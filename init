@@ -102,6 +102,16 @@ clear
 banner
 framework-selector
 }
+mdl-icon(){
+cp -rf $dir/components/fonts/mdl/* $dir/$name/assets/fonts
+cp -rf $dir/components/css/mdl-icon.min.css $dir/$name/assets/css
+sed -i '/<!--imports-->/a <link href="assets/css/mdl-icon.min.css" rel="stylesheet">' $dir/$name/index.html
+pause
+clear
+banner
+framework-selector
+}
+
 framework-selector()
 {
 echo -e "${bldgrn}Select any Framework to install"
