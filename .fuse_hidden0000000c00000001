@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash	
 
 #clear
 clear
@@ -6,7 +6,7 @@ clear
 # Remove scroll buffer
 echo -e  '\0033\0143'
 
-#color
+#color            
 txtbld=$(tput bold)             #  Bold
 bldred=${txtbld}$(tput setaf 1) #  red
 bldgrn=${txtbld}$(tput setaf 2) #  green
@@ -24,10 +24,10 @@ read -s -n 1 -p "Press any key to continue...";
 }
 bootstrap(){
 cp -rf $dir/components/css/bootstrap.min.css $dir/$name/assets/css
-cp -rf $dir/components/fonts/boot/* $dir/$name/assets/fonts
-cp -rf $dir/components/js/bootstrap.min.js $dir/$name/assets/js
-cp -rf $dir/components/js/jquery.min.js $dir/$name/assets/js
-sed -i '/<!--imports-->/a <link href="assets/css/bootstrap.min.css" rel="stylesheet">\n<script src="assets/js/jquery.min.js"></script>\n<script src="assets/js/bootstrap.min.js"></script>' $dir/$name/index.html
+cp -rf $dir/components/fonts/boot $dir/$name/assets/fonts
+   cp -rf $dir/components/js/bootstrap.min.js $dir/$name/assets/js
+   cp -rf $dir/components/js/jquery.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <link href="assets/css/bootstrap.min.css" rel="stylesheet">\n<script src="assets/js/jquery.min.js"></script>\n<script src="assets/js/bootstrap.min.js"></script>' $dir/$name/index.html 
 pause
 clear
 banner
@@ -36,7 +36,7 @@ framework-selector
 semantic(){
 cp -rf $dir/components/css/semantic.min.css $dir/$name/assets/css
 cp -rf $dir/components/js/semantic.min.js $dir/$name/assets/js
-sed -i '/<!--imports-->/a <link href="assets/css/semantic.min.css" rel="stylesheet">\n<script src="assets/js/semantic.min.js"></script>' $dir/$name/index.html
+sed -i '/<!--imports-->/a <link href="assets/css/semantic.min.css" rel="stylesheet">\n<script src="assets/js/semantic.min.js"></script>' $dir/$name/index.html 
 pause
 clear
 banner
@@ -44,7 +44,7 @@ framework-selector
 }
 animate(){
 cp -rf $dir/components/css/animate.min.css $dir/$name/assets/css
-sed -i '/<!--imports-->/a <link href="assets/css/animate.min.css" rel="stylesheet">' $dir/$name/index.html
+sed -i '/<!--imports-->/a <link href="assets/css/animate.min.css" rel="stylesheet">' $dir/$name/index.html 
 pause
 clear
 banner
@@ -52,7 +52,7 @@ framework-selector
 }
 pure(){
 cp -rf $dir/components/css/pure.min.css $dir/$name/assets/css
-sed -i '/<!--imports-->/a <link href="assets/css/pure.min.css" rel="stylesheet">' $dir/$name/index.html
+sed -i '/<!--imports-->/a <link href="assets/css/pure.min.css" rel="stylesheet">' $dir/$name/index.html 
 pause
 clear
 banner
@@ -60,16 +60,16 @@ framework-selector
 }
 mui(){
 cp -rf $dir/components/css/mui.min.css $dir/$name/assets/css
-cp -rf $dir/components/js/mui.min.js $dir/$name/assets/js
-sed -i '/<!--imports-->/a <link href="assets/css/mui.min.css" rel="stylesheet">\n<script src="assets/js/mui.min.js"></script>' $dir/$name/index.html
+   cp -rf $dir/components/js/mui.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <link href="assets/css/mui.min.css" rel="stylesheet">\n<script src="assets/js/mui.min.js"></script>' $dir/$name/index.html 
 pause
 clear
 banner
 framework-selector
 }
 jquery(){
-cp -rf $dir/components/js/jquery.min.js $dir/$name/assets/js
-sed -i '/<!--imports-->/a <script src="assets/js/jquery.min.js"></script>' $dir/$name/index.html
+   cp -rf $dir/components/js/jquery.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <script src="assets/js/jquery.min.js"></script>' $dir/$name/index.html 
 pause
 clear
 banner
@@ -77,26 +77,26 @@ framework-selector
 }
 materialize-css(){
 cp -rf $dir/components/css/materialize.min.css $dir/$name/assets/css
-cp -rf $dir/components/js/materialize.min.js $dir/$name/assets/js
-sed -i '/<!--imports-->/a <link href="assets/css/materialize.min.css" rel="stylesheet">\n<script src="assets/js/mmaterialize.min.js"></script>' $dir/$name/index.html
-pause
-clear
-banner
-framework-selector
+   cp -rf $dir/components/js/materialize.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <link href="assets/css/materialize.min.css" rel="stylesheet">\n<script src="assets/js/mmaterialize.min.js"></script>' $dir/$name/index.html 
+ pause
+ clear
+ banner
+ framework-selector  
 }
 mdl(){
 cp -rf $dir/components/css/mdl.min.css $dir/$name/assets/css
-cp -rf $dir/components/js/mdl.min.js $dir/$name/assets/js
-sed -i '/<!--imports-->/a <link href="assets/css/mdl.min.css" rel="stylesheet">\n<script src="assets/js/mdl.min.js"></script>' $dir/$name/index.html
+   cp -rf $dir/components/js/mdl.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <link href="assets/css/mdl.min.css" rel="stylesheet">\n<script src="assets/js/mdl.min.js"></script>' $dir/$name/index.html 
 pause
 clear
 banner
 framework-selector
 }
 fa(){
-cp -rf $dir/components/fonts/fa/* $dir/$name/assets/fonts
+cp -rf $dir/components/fonts/fa $dir/$name/assets/fonts
 cp -rf $dir/components/css/font-awesome.min.css $dir/$name/assets/css
-sed -i '/<!--imports-->/a <link href="assets/css/font-awesome.min.css" rel="stylesheet">' $dir/$name/index.html
+sed -i '/<!--imports-->/a <link href="assets/css/font-awesome.min.css" rel="stylesheet">' $dir/$name/index.html 
 pause
 clear
 banner
@@ -121,7 +121,7 @@ read framework
 case $framework in
     1)bootstrap;;
     2)mdl;;
-    3)mui;;
+    3)mui;; 
     4)materialize-css;;
     5)semantic;;
     6)animate;;
@@ -137,7 +137,7 @@ echo -e "${bldgrn}Enter the name of your web app:"
 echo "${bldcya}"
 read name
 rm -rf $dir/$name
-mkdir $dir/$name
+mkdir $dir/$name 
 cp -rf $dir/template/* $dir/$name
 clear
 banner
