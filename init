@@ -1,0 +1,66 @@
+#!/bin/bash	
+
+clear
+dir=`pwd`
+
+# Remove scroll buffer
+echo -e  '\0033\0143'
+
+#color            
+txtbld=$(tput bold)             # Bold
+bldred=${txtbld}$(tput setaf 1) #  red
+bldgrn=${txtbld}$(tput setaf 2) #  green
+bldcya=${txtbld}$(tput setaf 6) #  cyan
+bootstrap(){
+cp -rf $dir/components/css/bootstrap.min.css $dir/$name/assets/css
+   cp -rf $dir/components/js/bootstrap.min.js $dir/$name/assets/js
+   cp -rf $dir/components/js/jquery.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <link href="assets/css/bootstrap.min.css" rel="stylesheet">\n<script src="assets/js/jquery.min.js"></script>\n<script src="assets/js/bootstrap.min.js"></script>' $dir/$name/index.html 
+}
+semantic(){
+ cp -rf $dir/components/css/semantic.min.css $dir/$name/assets/css
+   cp -rf $dir/components/js/semantic.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <link href="assets/css/semantic.min.css" rel="stylesheet">\n<script src="assets/js/semantic.min.js"></script>' $dir/$name/index.html 
+}
+mui(){
+cp -rf $dir/components/css/mui.min.css $dir/$name/assets/css
+   cp -rf $dir/components/js/mui.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <link href="assets/css/mui.min.css" rel="stylesheet">\n<script src="assets/js/mui.min.js"></script>' $dir/$name/index.html 
+}
+materialize-css(){
+cp -rf $dir/components/css/mui.min.css $dir/$name/assets/css
+   cp -rf $dir/components/js/mui.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <link href="assets/css/mui.min.css" rel="stylesheet">\n<script src="assets/js/mui.min.js"></script>' $dir/$name/index.html 
+   
+}
+mdl(){
+cp -rf $dir/components/css/mdl.min.css $dir/$name/assets/css
+   cp -rf $dir/components/js/mdl.min.js $dir/$name/assets/js
+   sed -i '/<!--imports-->/a <link href="assets/css/mdl.min.css" rel="stylesheet">\n<script src="assets/js/mdl.min.js"></script>' $dir/$name/index.html 
+}
+framework-selector()
+{
+
+echo -e "${bldcya}Select any Framework below to install"
+echo ""
+echo -e "1. Bootstrap"
+echo -e "2. Material Design Lite"
+echo -e "3. MUI CSS"
+echo -e "4. Materialize CSS"
+echo -e "5. Semantic UI"
+read framework
+case $framework in
+    1)bootstrap;;
+    2)mdl;;
+    3)mui;; 
+    4)materialize-css;;
+    5)semantic;;
+esac
+
+
+echo -e "${bldgrn}Enter the name of your web app: "
+read name
+rm -rf $dir/$name
+mkdir $dir/$name 
+cp -rf $dir/template/* $dir/$name
+framework-selector
