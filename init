@@ -36,7 +36,8 @@ framework-selector
 semantic(){
 cp -rf $dir/components/css/semantic.min.css $dir/$name/assets/css
 cp -rf $dir/components/js/semantic.min.js $dir/$name/assets/js
-sed -i '/<!--imports-->/a <link href="assets/css/semantic.min.css" rel="stylesheet">\n<script src="assets/js/semantic.min.js"></script>' $dir/$name/index.html
+cp -rf $dir/components/js/jquery.min.js $dir/$name/assets/js
+sed -i '/<!--imports-->/a <link href="assets/css/semantic.min.css" rel="stylesheet">\n<script src="assets/js/semantic.min.js"></script>\n<script src="assets/js/jquery.min.js"></script>' $dir/$name/index.html
 pause
 clear
 banner
